@@ -1,42 +1,55 @@
-// Use requestIdleCallback for non-critical operations
-const initTheme = () => {
-    const themeToggle = document.getElementById('theme-toggle');
-    
-    if (!themeToggle) {
-        console.error('Error: No se encontró el elemento con ID "theme-toggle"');
-        return;
-    }
+// Menú móvil
+const menuToggle = document.getElementById('menu-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+const closeMenu = document.getElementById('close-menu');
+const themeToggle = document.getElementById('theme-toggle');
+const themeToggleMobile = document.getElementById('theme-toggle-mobile');
 
-    // Función para aplicar el tema
-    const applyTheme = (isDark) => {
-        document.body.classList.toggle('dark-mode', isDark);
-        themeToggle.classList.toggle('dark-mode', isDark);
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    };
+// Event listeners para menú móvil
+menuToggle.addEventListener('click', () => {
+    mobileMenu.classList.add('active');
+    document.body.style.overflow = 'hidden';
+});
 
-    // Verificar preferencia del sistema
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    // Verificar tema guardado
-    const savedTheme = localStorage.getItem('theme');
-    const shouldBeDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+closeMenu.addEventListener('click', () => {
+    mobileMenu.classList.remove('active');
+    document.body.style.overflow = '';
+});
 
-    // Aplicar tema inicial
-    applyTheme(shouldBeDark);
-
-    // Escuchar clicks en el botón
-    themeToggle.addEventListener('click', () => {
-        const isDark = !document.body.classList.contains('dark-mode');
-        applyTheme(isDark);
+// Cerrar menú al hacer clic en un enlace
+document.querySelectorAll('.mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
     });
+});
 
-    // Hacer visible el botón
-    themeToggle.style.visibility = 'visible';
+// Inicializar tema
+const initTheme = () => {
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    
+    if (currentTheme === 'dark') {
+        themeToggle.classList.add('dark-mode');
+        themeToggleMobile.classList.add('dark-mode');
+    }
 };
 
-// Initialize when DOM is ready
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initTheme);
-} else {
-    initTheme();
-} 
+// Función para cambiar tema
+const toggleTheme = () => {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const newTheme = isDark ? 'light' : 'dark';
+    
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    
+    themeToggle.classList.toggle('dark-mode');
+    themeToggleMobile.classList.toggle('dark-mode');
+};
+
+// Event listeners para cambio de tema
+themeToggle.addEventListener('click', toggleTheme);
+themeToggleMobile.addEventListener('click', toggleTheme);
+
+// Inicializar tema al cargar la página
+document.addEventListener('DOMContentLoaded', initTheme); 

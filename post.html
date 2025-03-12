@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid system for better Design User Interface - Your Blog</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container nav-container">
+            <a href="blog.html" class="brand">Your Name</a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+            </button>
+            <nav class="nav-links" id="nav-links">
+                <a href="blog.html" class="active">Blog</a>
+                <a href="projects.html">Projects</a>
+                <a href="about.html">About</a>
+                <a href="newsletter.html">Newsletter</a>
+                <button class="theme-switch" id="theme-toggle" aria-label="Cambiar tema" title="Cambiar tema"></button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container post-detail-layout">
+        <!-- Columna izquierda - Posts recientes -->
+        <aside class="recent-posts-sidebar">
+            <h2 class="section-title">Recent blog posts</h2>
+            <div class="posts-list">
+                <article class="post-card">
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3" alt="Team meeting" class="post-image">
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span>Olivia Rhye</span>
+                            <span>•</span>
+                            <span>1 Jan 2023</span>
+                        </div>
+                        <h3 class="post-title">UX review presentations</h3>
+                        <p class="post-excerpt">How do you create compelling presentations that wow your colleagues and impress your managers?</p>
+                        <div class="post-tags">
+                            <span class="tag tag-design">Design</span>
+                            <span>•</span>
+                            <span class="tag tag-research">Research</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3" alt="Developer workspace" class="post-image">
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span>Phoenix Baker</span>
+                            <span>•</span>
+                            <span>1 Jan 2023</span>
+                        </div>
+                        <h3 class="post-title">Migrating to Linear 101</h3>
+                        <p class="post-excerpt">Linear helps streamline software projects, sprints, tasks, and bug tracking. Here's how to...</p>
+                        <div class="post-tags">
+                            <span class="tag tag-design">Design</span>
+                            <span>•</span>
+                            <span class="tag tag-research">Research</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card">
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3" alt="Team meeting" class="post-image">
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span>Lana Steiner</span>
+                            <span>•</span>
+                            <span>1 Jan 2023</span>
+                        </div>
+                        <h3 class="post-title">Building your API Stack</h3>
+                        <p class="post-excerpt">The rise of RESTful APIs has been met by a rise in tools for creating, testing, and managing...</p>
+                        <div class="post-tags">
+                            <span class="tag tag-design">Design</span>
+                            <span>•</span>
+                            <span class="tag tag-research">Research</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </aside>
+
+        <!-- Columna derecha - Contenido del post -->
+        <article class="post-detail-content">
+            <div class="post-header">
+                <div class="post-meta">
+                    <span>Sunday, 1 Jan 2023</span>
+                </div>
+                <h1 class="post-title">Grid system for better Design User Interface</h1>
+                <div class="post-tags">
+                    <span class="tag tag-design">Design</span>
+                    <span class="tag tag-ui">UI</span>
+                    <span class="tag tag-frameworks">Development</span>
+                </div>
+            </div>
+
+            <div class="post-body">
+                <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3" alt="Grid system example" class="post-main-image">
+                
+                <p>A grid system is a design tool used to arrange content on a webpage. It is a series of vertical and horizontal lines that create a matrix of intersecting points, which can be used to align and organize page elements. Grid systems are used to create a consistent look and feel across a website, and can help to make the layout more visually appealing and easier to navigate.</p>
+
+                <h2>Common Grid Structures</h2>
+                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3" alt="Common grid structures" class="post-content-image">
+                
+                <h3>Column Grid</h3>
+                <p>Column grid involves dividing a page into vertical columns. All elements and content are then aligned to these columns.</p>
+
+                <h3>Modular Grid</h3>
+                <p>Modular grid extends the column grid further by adding rows to it. This intersection of columns and rows creates modules or boxes where content can be placed.</p>
+
+                <h3>Hierarchical Grid</h3>
+                <p>Content organized by importance, creating an intuitive visual hierarchy that guides users through the interface.</p>
+
+                <div class="quote-block">
+                    <blockquote>
+                        "A grid system is not just about making things look neat — it's about creating a consistent and predictable layout that helps users navigate and understand your content."
+                    </blockquote>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-links">
+                <a href="https://twitter.com" target="_blank">Twitter</a>
+                <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                <a href="mailto:contact@example.com">Email</a>
+                <a href="/rss.xml">RSS feed</a>
+            </div>
+            <div>© 2023</div>
+        </div>
+    </footer>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-content">
+            <a href="blog.html" class="active">Blog</a>
+            <a href="projects.html">Projects</a>
+            <a href="about.html">About</a>
+            <a href="newsletter.html">Newsletter</a>
+            <button class="theme-switch mobile" id="theme-toggle-mobile" aria-label="Cambiar tema" title="Cambiar tema"></button>
+            <button class="close-menu" id="close-menu">×</button>
+        </div>
+    </div>
+
+    <script src="js/theme.js" defer></script>
+</body>
+</html> 
