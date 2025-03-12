@@ -8,30 +8,19 @@
     <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
     <link rel="dns-prefetch" href="https://images.unsplash.com">
     <title>Newsletter</title>
-    <style>
-        /* Incluir aquí el contenido de critical.css */
-        @import url('css/critical.css');
-    </style>
     <link rel="preload" href="css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="css/style.css"></noscript>
-    <script>
-        // Inline small scripts for immediate execution
-        document.documentElement.classList.remove('no-js');
-        if (localStorage.getItem('theme') === 'dark') {
-            document.body.classList.add('dark-mode');
-        }
-    </script>
 </head>
 <body>
     <header class="header">
         <div class="container nav-container">
             <a href="index.html" class="brand">Your Name</a>
-            <nav class="nav-links">
+            <nav class="nav-links" id="nav-links">
                 <a href="blog.html">Blog</a>
                 <a href="projects.html">Projects</a>
                 <a href="about.html">About</a>
                 <a href="newsletter.html" class="active">Newsletter</a>
-                <button class="theme-switch" id="theme-toggle" aria-label="Toggle theme"></button>
+                <button class="theme-switch" id="theme-toggle" aria-label="Cambiar tema" title="Cambiar tema"></button>
             </nav>
             <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
                 <span></span>
@@ -171,52 +160,6 @@
             </div>
         </footer>
 
-    <script src="js/theme.js" defer async></script>
-    <script>
-        // Theme toggle functionality
-        const themeToggle = document.getElementById('theme-toggle');
-        const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
-        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-        
-        // Check for saved theme or use system preference
-        const savedTheme = localStorage.getItem('theme');
-        const currentTheme = savedTheme || (prefersDarkScheme.matches ? 'dark' : 'light');
-        
-        // Set initial theme
-        document.documentElement.setAttribute('data-theme', currentTheme);
-        if (currentTheme === 'dark') {
-            themeToggle.classList.add('dark-mode');
-            mobileThemeToggle.classList.add('dark-mode');
-        }
-
-        function toggleTheme() {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            
-            themeToggle.classList.toggle('dark-mode');
-            mobileThemeToggle.classList.toggle('dark-mode');
-        }
-
-        themeToggle.addEventListener('click', toggleTheme);
-        mobileThemeToggle.addEventListener('click', toggleTheme);
-
-        // Mobile menu functionality
-        const menuToggle = document.getElementById('menu-toggle');
-        const closeMenu = document.getElementById('close-menu');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
-
-        closeMenu.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-    </script>
+    <script src="js/main.js"></script>
 </body>
 </html>

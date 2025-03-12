@@ -3,11 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Hector Lavoe</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="Conoce más sobre Juanito, diseñador UI/UX con más de 6 años de experiencia">
+    <meta name="theme-color" content="#ffffff">
+    
+    <!-- Precargas críticas -->
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="preload" href="js/main.js" as="script">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style">
+    
+    <!-- Preconexiones críticas -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+    
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="https://images.unsplash.com">
+    
+    <title>About - Juanito</title>
+    
+    <!-- CSS Crítico inline -->
+    <style>
+        :root{--bg-primary:#FFF;--text-primary:#101828}
+        body{margin:0;background:var(--bg-primary);color:var(--text-primary);font-family:Inter,sans-serif}
+        .container{max-width:1200px;margin:0 auto;padding:0 20px}
+        .header{padding:20px 0}
+        .nav-container{display:flex;justify-content:space-between;align-items:center}
+        .profile-image img{width:100%;height:auto;display:block}
+    </style>
+    
+    <!-- Fuentes con carga optimizada -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" 
+          media="print" onload="this.media='all'">
+    
+    <!-- CSS Principal con carga diferida -->
+    <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    </noscript>
 </head>
 <body>
     <header class="header">
@@ -35,8 +68,20 @@
         
         <div class="about-content">
             <div class="profile-image">
-                <img src="https://images.unsplash.com/photo-1509479200622-4503f27f12ef?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
-                     alt="Hector Lavoe">
+                <picture>
+                    <source type="image/webp" 
+                            srcset="https://images.unsplash.com/photo-1509479200622-4503f27f12ef?ixlib=rb-4.0.3&fm=webp&w=800&q=80 800w,
+                                    https://images.unsplash.com/photo-1509479200622-4503f27f12ef?ixlib=rb-4.0.3&fm=webp&w=1200&q=80 1200w,
+                                    https://images.unsplash.com/photo-1509479200622-4503f27f12ef?ixlib=rb-4.0.3&fm=webp&w=2000&q=80 2000w"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 1200px, 2000px">
+                    <img src="https://images.unsplash.com/photo-1509479200622-4503f27f12ef?ixlib=rb-4.0.3&w=1200&q=80" 
+                         alt="Juanito - UI Designer" 
+                         loading="eager"
+                         decoding="sync"
+                         width="1200"
+                         height="800"
+                         fetchpriority="high">
+                </picture>
             </div>
 
             <section class="about-section">
@@ -80,77 +125,29 @@
     <footer class="footer">
         <div class="container footer-content">
             <div class="footer-links">
-                <a href="https://twitter.com" target="_blank">Twitter</a>
-                <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                <a href="https://twitter.com" target="_blank" rel="noopener">Twitter</a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
                 <a href="mailto:contact@example.com">Email</a>
                 <a href="/rss.xml">RSS feed</a>
             </div>
-            <div> 2023</div>
+            <div>© 2023</div>
         </div>
     </footer>
 
     <div class="mobile-menu" id="mobile-menu">
         <div class="mobile-menu-content">
-            <a href="blog.html">Blog</a>
-            <a href="projects.html">Projects</a>
-            <a href="about.html" class="active">About</a>
-            <a href="newsletter.html">Newsletter</a>
-            <button class="theme-switch mobile" id="theme-toggle-mobile" aria-label="Cambiar tema" title="Cambiar tema"></button>
-            <button class="close-menu" id="close-menu">×</button>
+            <a href="index.html" class="brand">Your Name</a>
+            <nav class="nav-links">
+                <a href="blog.html">Blog</a>
+                <a href="projects.html">Projects</a>
+                <a href="about.html" class="active">About</a>
+                <a href="newsletter.html">Newsletter</a>
+            </nav>
+            <button class="theme-switch mobile" id="mobile-theme-toggle" aria-label="Toggle theme"></button>
+            <button class="close-menu" id="close-menu" aria-label="Close menu">×</button>
         </div>
     </div>
 
-    <script>
-        // Tema oscuro
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeToggleMobile = document.getElementById('theme-toggle-mobile');
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        
-        // Aplicar tema inicial
-        document.documentElement.setAttribute('data-theme', currentTheme);
-        if (currentTheme === 'dark') {
-            themeToggle.classList.add('dark-mode');
-            themeToggleMobile.classList.add('dark-mode');
-        }
-
-        // Función para cambiar tema
-        function toggleTheme() {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            
-            themeToggle.classList.toggle('dark-mode');
-            themeToggleMobile.classList.toggle('dark-mode');
-        }
-
-        // Event listeners para botones de tema
-        themeToggle.addEventListener('click', toggleTheme);
-        themeToggleMobile.addEventListener('click', toggleTheme);
-
-        // Menú móvil
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const closeMenu = document.getElementById('close-menu');
-
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
-
-        closeMenu.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-
-        // Cerrar menú al hacer clic en un enlace
-        document.querySelectorAll('.mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-        });
-    </script>
+    <script src="js/main.js" defer></script>
 </body>
 </html>

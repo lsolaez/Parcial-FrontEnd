@@ -3,11 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grid system for better Design User Interface - Your Blog</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="Aprende sobre sistemas de grid para mejorar el diseño de interfaces de usuario">
+    <meta name="theme-color" content="#ffffff">
+    
+    <!-- Precargas críticas -->
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="preload" href="js/main.js" as="script">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style">
+    
+    <!-- Preconexiones críticas -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+    
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="https://images.unsplash.com">
+    
+    <title>Grid system for better Design User Interface - Your Blog</title>
+    
+    <!-- CSS Crítico inline -->
+    <style>
+        :root{--bg-primary:#FFF;--text-primary:#101828}
+        body{margin:0;background:var(--bg-primary);color:var(--text-primary);font-family:Inter,sans-serif}
+        .container{max-width:1200px;margin:0 auto;padding:0 20px}
+        .header{padding:20px 0}
+        .nav-container{display:flex;justify-content:space-between;align-items:center}
+        .post-image{width:100%;height:auto;display:block}
+    </style>
+    
+    <!-- Fuentes con carga optimizada -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" 
+          media="print" onload="this.media='all'">
+    
+    <!-- CSS Principal con carga diferida -->
+    <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    </noscript>
 </head>
 <body>
     <header class="header">
@@ -17,7 +50,7 @@
                 <span></span>
             </button>
             <nav class="nav-links" id="nav-links">
-                <a href="blog.html" class="active">Blog</a>
+                <a href="blog.html">Blog</a>
                 <a href="projects.html">Projects</a>
                 <a href="about.html">About</a>
                 <a href="newsletter.html">Newsletter</a>
@@ -32,7 +65,19 @@
             <h2 class="section-title">Recent blog posts</h2>
             <div class="posts-list">
                 <article class="post-card">
-                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3" alt="Team meeting" class="post-image">
+                    <picture>
+                        <source type="image/webp" 
+                                srcset="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&fm=webp&w=400&q=80 400w,
+                                        https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&fm=webp&w=800&q=80 800w"
+                                sizes="(max-width: 768px) 400px, 800px">
+                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&w=400&q=80" 
+                             alt="Team meeting" 
+                             class="post-image"
+                             loading="lazy"
+                             decoding="async"
+                             width="400"
+                             height="300">
+                    </picture>
                     <div class="post-content">
                         <div class="post-meta">
                             <span>Olivia Rhye</span>
@@ -50,7 +95,19 @@
                 </article>
 
                 <article class="post-card">
-                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3" alt="Developer workspace" class="post-image">
+                    <picture>
+                        <source type="image/webp" 
+                                srcset="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&fm=webp&w=400&q=80 400w,
+                                        https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&fm=webp&w=800&q=80 800w"
+                                sizes="(max-width: 768px) 400px, 800px">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&w=400&q=80" 
+                             alt="Developer workspace" 
+                             class="post-image"
+                             loading="lazy"
+                             decoding="async"
+                             width="400"
+                             height="300">
+                    </picture>
                     <div class="post-content">
                         <div class="post-meta">
                             <span>Phoenix Baker</span>
@@ -102,12 +159,37 @@
             </div>
 
             <div class="post-body">
-                <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3" alt="Grid system example" class="post-main-image">
+                <picture>
+                    <source type="image/webp" 
+                            srcset="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&fm=webp&w=800&q=80 800w,
+                                    https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&fm=webp&w=1200&q=80 1200w"
+                            sizes="(max-width: 768px) 100vw, 800px">
+                    <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&w=800&q=80" 
+                         alt="Grid system example" 
+                         class="post-main-image"
+                         loading="eager"
+                         decoding="sync"
+                         width="800"
+                         height="600"
+                         fetchpriority="high">
+                </picture>
                 
                 <p>A grid system is a design tool used to arrange content on a webpage. It is a series of vertical and horizontal lines that create a matrix of intersecting points, which can be used to align and organize page elements. Grid systems are used to create a consistent look and feel across a website, and can help to make the layout more visually appealing and easier to navigate.</p>
 
                 <h2>Common Grid Structures</h2>
-                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3" alt="Common grid structures" class="post-content-image">
+                <picture>
+                    <source type="image/webp" 
+                            srcset="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&fm=webp&w=800&q=80 800w,
+                                    https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&fm=webp&w=1200&q=80 1200w"
+                            sizes="(max-width: 768px) 100vw, 800px">
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&w=800&q=80" 
+                         alt="Common grid structures" 
+                         class="post-content-image"
+                         loading="lazy"
+                         decoding="async"
+                         width="800"
+                         height="600">
+                </picture>
                 
                 <h3>Column Grid</h3>
                 <p>Column grid involves dividing a page into vertical columns. All elements and content are then aligned to these columns.</p>
@@ -130,8 +212,8 @@
     <footer class="footer">
         <div class="container footer-content">
             <div class="footer-links">
-                <a href="https://twitter.com" target="_blank">Twitter</a>
-                <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                <a href="https://twitter.com" target="_blank" rel="noopener">Twitter</a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
                 <a href="mailto:contact@example.com">Email</a>
                 <a href="/rss.xml">RSS feed</a>
             </div>
@@ -141,15 +223,18 @@
 
     <div class="mobile-menu" id="mobile-menu">
         <div class="mobile-menu-content">
-            <a href="blog.html" class="active">Blog</a>
-            <a href="projects.html">Projects</a>
-            <a href="about.html">About</a>
-            <a href="newsletter.html">Newsletter</a>
-            <button class="theme-switch mobile" id="theme-toggle-mobile" aria-label="Cambiar tema" title="Cambiar tema"></button>
-            <button class="close-menu" id="close-menu">×</button>
+            <a href="index.html" class="brand">Your Name</a>
+            <nav class="nav-links">
+                <a href="blog.html">Blog</a>
+                <a href="projects.html">Projects</a>
+                <a href="about.html">About</a>
+                <a href="newsletter.html">Newsletter</a>
+            </nav>
+            <button class="theme-switch mobile" id="mobile-theme-toggle" aria-label="Cambiar tema" title="Cambiar tema"></button>
+            <button class="close-menu" id="close-menu" aria-label="Cerrar menú">×</button>
         </div>
     </div>
 
-    <script src="js/theme.js" defer></script>
+    <script src="js/main.js" defer></script>
 </body>
 </html> 

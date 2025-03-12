@@ -112,26 +112,6 @@
 
             <div class="project-card">
                 <div class="project-image">
-                    <img src="https://plus.unsplash.com/premium_photo-1678565869434-c81195861939?ixlib=rb-4.0.3&w=500&q=80" 
-                         alt="Icon Package">
-                </div>
-                <div class="project-content">
-                    <div class="post-meta">
-                        <span>Olivia Rhye</span>
-                        <span>•</span>
-                        <span>20 Jan 2024</span>
-                    </div>
-                    <h3 class="post-title">Icon Package of the Year</h3>
-                    <p class="post-excerpt">A comprehensive collection of minimal and modern icons for digital interfaces</p>
-                    <div class="post-tags">
-                        <span class="tag tag-design">Design</span>
-                        <span class="tag tag-ui">UI</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image">
                     <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&w=500&q=80" 
                          alt="UX Review">
                 </div>
@@ -166,66 +146,18 @@
 
     <div class="mobile-menu" id="mobile-menu">
         <div class="mobile-menu-content">
-            <a href="blog.html">Blog</a>
-            <a href="projects.html" class="active">Projects</a>
-            <a href="about.html">About</a>
-            <a href="newsletter.html">Newsletter</a>
-            <button class="theme-switch mobile" id="theme-toggle-mobile" aria-label="Cambiar tema" title="Cambiar tema"></button>
-            <button class="close-menu" id="close-menu">×</button>
+            <a href="index.html" class="brand">Your Name</a>
+            <nav class="nav-links">
+                <a href="blog.html">Blog</a>
+                <a href="projects.html" class="active">Projects</a>
+                <a href="about.html">About</a>
+                <a href="newsletter.html">Newsletter</a>
+            </nav>
+            <button class="theme-switch mobile" id="mobile-theme-toggle" aria-label="Toggle theme"></button>
+            <button class="close-menu" id="close-menu" aria-label="Close menu">×</button>
         </div>
     </div>
 
-    <script src="js/theme.js" defer async></script>
-    <script>
-        // Tema oscuro
-        const currentTheme = localStorage.getItem('theme');
-        if (currentTheme) {
-            document.documentElement.setAttribute('data-theme', currentTheme);
-            if (currentTheme === 'dark') {
-                document.querySelector('.theme-switch').classList.add('dark-mode');
-                document.querySelector('.theme-switch.mobile').classList.add('dark-mode');
-            }
-        }
-
-        function toggleTheme() {
-            let theme = 'light';
-            if (document.documentElement.getAttribute('data-theme') !== 'dark') {
-                theme = 'dark';
-                document.querySelector('.theme-switch').classList.add('dark-mode');
-                document.querySelector('.theme-switch.mobile').classList.add('dark-mode');
-            } else {
-                document.querySelector('.theme-switch').classList.remove('dark-mode');
-                document.querySelector('.theme-switch.mobile').classList.remove('dark-mode');
-            }
-            document.documentElement.setAttribute('data-theme', theme);
-            localStorage.setItem('theme', theme);
-        }
-
-        document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
-        document.getElementById('theme-toggle-mobile').addEventListener('click', toggleTheme);
-
-        // Menú móvil
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const closeMenu = document.getElementById('close-menu');
-
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
-
-        closeMenu.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-
-        // Cerrar menú al hacer clic en un enlace
-        document.querySelectorAll('.mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-        });
-    </script>
+    <script src="js/main.js"></script>
 </body>
 </html>

@@ -3,16 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Blog</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="Read our latest blog posts and articles">
+    <meta name="theme-color" content="#ffffff">
+    
+    <!-- Precargas críticas -->
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="preload" href="js/main.js" as="script">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style">
+    
+    <!-- Preconexiones críticas -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+    
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="https://images.unsplash.com">
+    
+    <title>The Blog</title>
+    
+    <!-- CSS Crítico inline -->
+    <style>
+        :root{--bg-primary:#FFF;--text-primary:#101828}
+        body{margin:0;background:var(--bg-primary);color:var(--text-primary);font-family:Inter,sans-serif}
+        .container{max-width:1200px;margin:0 auto;padding:0 20px}
+        .header{padding:20px 0}
+        .nav-container{display:flex;justify-content:space-between;align-items:center}
+        .post-image{width:100%;height:auto;display:block}
+    </style>
+    
+    <!-- Fuentes con carga optimizada -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" 
+          media="print" onload="this.media='all'">
+    
+    <!-- CSS Principal con carga diferida -->
+    <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    </noscript>
 </head>
 <body>
     <header class="header">
         <div class="container nav-container">
-            <a href="blog.html" class="brand">Your Name</a>
+            <a href="index.html" class="brand">Your Name</a>
             <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
                 <span></span>
             </button>
@@ -38,7 +71,21 @@
             <div class="posts-grid">
                 <article class="main-post post-card">
                     <a href="post.html" class="post-link">
-                        <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Office workspace" class="post-image">
+                        <picture>
+                            <source type="image/webp" 
+                                    srcset="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&fm=webp&w=400&q=80 400w,
+                                            https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&fm=webp&w=800&q=80 800w,
+                                            https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&fm=webp&w=1200&q=80 1200w"
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 800px, 1200px">
+                            <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&w=800&q=80" 
+                                 alt="Office workspace" 
+                                 class="post-image"
+                                 loading="eager"
+                                 decoding="sync"
+                                 width="800"
+                                 height="600"
+                                 fetchpriority="high">
+                        </picture>
                         <div class="post-content">
                             <div class="post-meta">
                                 <span>Olivia Rhye</span>
@@ -60,7 +107,19 @@
 
                 <div class="side-posts">
                     <article class="post-card">
-                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Team meeting" class="post-image">
+                        <picture>
+                            <source type="image/webp" 
+                                    srcset="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&fm=webp&w=400&q=80 400w,
+                                            https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&fm=webp&w=800&q=80 800w"
+                                    sizes="(max-width: 768px) 400px, 800px">
+                            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&w=400&q=80" 
+                                 alt="Team meeting" 
+                                 class="post-image"
+                                 loading="lazy"
+                                 decoding="async"
+                                 width="400"
+                                 height="300">
+                        </picture>
                         <div class="post-content">
                             <div class="post-meta">
                                 <span>Phoenix Baker</span>
@@ -188,67 +247,18 @@
 
     <div class="mobile-menu" id="mobile-menu">
         <div class="mobile-menu-content">
-            <a href="blog.html" class="active">Blog</a>
-            <a href="projects.html">Projects</a>
-            <a href="about.html">About</a>
-            <a href="newsletter.html">Newsletter</a>
-            <button class="theme-switch mobile" id="theme-toggle-mobile" aria-label="Cambiar tema" title="Cambiar tema"></button>
-            <button class="close-menu" id="close-menu">×</button>
+            <a href="index.html" class="brand">Your Name</a>
+            <nav class="nav-links">
+                <a href="blog.html" class="active">Blog</a>
+                <a href="projects.html">Projects</a>
+                <a href="about.html">About</a>
+                <a href="newsletter.html">Newsletter</a>
+            </nav>
+            <button class="theme-switch mobile" id="mobile-theme-toggle" aria-label="Toggle theme"></button>
+            <button class="close-menu" id="close-menu" aria-label="Close menu">×</button>
         </div>
     </div>
 
-    <script>
-        // Tema oscuro
-        const currentTheme = localStorage.getItem('theme');
-        if (currentTheme) {
-            document.documentElement.setAttribute('data-theme', currentTheme);
-            if (currentTheme === 'dark') {
-                document.querySelector('.theme-switch').classList.add('dark-mode');
-                document.querySelector('.theme-switch.mobile').classList.add('dark-mode');
-            }
-        }
-
-        function toggleTheme() {
-            let theme = 'light';
-            if (document.documentElement.getAttribute('data-theme') !== 'dark') {
-                theme = 'dark';
-                document.querySelector('.theme-switch').classList.add('dark-mode');
-                document.querySelector('.theme-switch.mobile').classList.add('dark-mode');
-            } else {
-                document.querySelector('.theme-switch').classList.remove('dark-mode');
-                document.querySelector('.theme-switch.mobile').classList.remove('dark-mode');
-            }
-            document.documentElement.setAttribute('data-theme', theme);
-            localStorage.setItem('theme', theme);
-        }
-
-        document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
-        document.getElementById('theme-toggle-mobile').addEventListener('click', toggleTheme);
-
-        // Menú móvil
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const closeMenu = document.getElementById('close-menu');
-
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
-
-        closeMenu.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-
-        // Cerrar menú al hacer clic en un enlace
-        document.querySelectorAll('.mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-        });
-    </script>
-
-    <script src="js/theme.js" defer></script>
+    <script src="js/main.js" defer></script>
 </body>
 </html>
