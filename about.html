@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Hector Lavoe</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container nav-container">
+            <a href="blog.html" class="brand">Your Name</a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+            </button>
+            <nav class="nav-links" id="nav-links">
+                <a href="blog.html">Blog</a>
+                <a href="projects.html">Projects</a>
+                <a href="about.html" class="active">About</a>
+                <a href="newsletter.html">Newsletter</a>
+                <button class="theme-switch" id="theme-toggle" aria-label="Cambiar tema" title="Cambiar tema"></button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="blog-title-container">
+            <div class="title-line"></div>
+            <h1 class="blog-title">JUANITO</h1>
+            <div class="title-line"></div>
+        </div>
+        
+        <div class="about-content">
+            <div class="profile-image">
+                <img src="https://images.unsplash.com/photo-1509479200622-4503f27f12ef?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                     alt="Hector Lavoe">
+            </div>
+
+            <section class="about-section">
+                <h2>About Me</h2>
+                <p>As a passionate and experienced UI designer, I am dedicated to creating intuitive and engaging user experiences that meet the needs of my clients and their users. I have a strong understanding of design principles and a proficiency in design tools, and I am comfortable working with cross-functional teams to bring projects to fruition. I am confident in my ability to create designs that are both visually appealing and functional, and I am always looking for new challenges and opportunities to grow as a designer.</p>
+            </section>
+
+            <section class="about-section">
+                <h2>Skills:</h2>
+                <ul class="skills-list">
+                    <li>Extensive experience in UI design, with a strong portfolio of completed projects</li>
+                    <li>Proficiency in design tools such as Adobe Creative Suite and sketch</li>
+                    <li>Knowledge of design best practices for typography, color theory, layout, and typography</li>
+                    <li>Ability to create wireframes and prototypes to communicate design concepts</li>
+                    <li>Strong communication and collaboration skills, with the ability to work effectively with cross-functional teams</li>
+                    <li>Experience conducting user research and gathering insights to inform design decisions</li>
+                    <li>Proficiency in HTML, CSS, and JavaScript</li>
+                </ul>
+            </section>
+
+            <section class="about-section">
+                <h2>Experience:</h2>
+                <ul class="experience-list">
+                    <li>6 years of experience as a UI designer, working on a variety of projects for clients in the tech and retail industries</li>
+                    <li>Led the design of a successful e-commerce website, resulting in a 25% increase in online sales</li>
+                    <li>Collaborated with developers to implement responsive design solutions across multiple device types and screen sizes</li>
+                    <li>Conducted user research and usability testing to inform the redesign of a healthcare provider's website, resulting in a 15% increase in website traffic</li>
+                </ul>
+            </section>
+
+            <section class="about-section">
+                <h2>Education:</h2>
+                <ul class="education-list">
+                    <li>Bachelor's degree in Graphic Design</li>
+                    <li>Certified User Experience Designer (CUED)</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-links">
+                <a href="https://twitter.com" target="_blank">Twitter</a>
+                <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                <a href="mailto:contact@example.com">Email</a>
+                <a href="/rss.xml">RSS feed</a>
+            </div>
+            <div> 2023</div>
+        </div>
+    </footer>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-content">
+            <a href="blog.html">Blog</a>
+            <a href="projects.html">Projects</a>
+            <a href="about.html" class="active">About</a>
+            <a href="newsletter.html">Newsletter</a>
+            <button class="theme-switch mobile" id="theme-toggle-mobile" aria-label="Cambiar tema" title="Cambiar tema"></button>
+            <button class="close-menu" id="close-menu">×</button>
+        </div>
+    </div>
+
+    <script>
+        // Tema oscuro
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        
+        // Aplicar tema inicial
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        if (currentTheme === 'dark') {
+            themeToggle.classList.add('dark-mode');
+            themeToggleMobile.classList.add('dark-mode');
+        }
+
+        // Función para cambiar tema
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            themeToggle.classList.toggle('dark-mode');
+            themeToggleMobile.classList.toggle('dark-mode');
+        }
+
+        // Event listeners para botones de tema
+        themeToggle.addEventListener('click', toggleTheme);
+        themeToggleMobile.addEventListener('click', toggleTheme);
+
+        // Menú móvil
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenu = document.getElementById('close-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -5,12 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Blog</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="header">
         <div class="container nav-container">
             <a href="blog.html" class="brand">Your Name</a>
-            <nav class="nav-links">
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+            </button>
+            <nav class="nav-links" id="nav-links">
                 <a href="blog.html" class="active">Blog</a>
                 <a href="projects.html">Projects</a>
                 <a href="about.html">About</a>
@@ -21,7 +27,11 @@
     </header>
 
     <main class="container">
-        <h1 class="blog-title">THE BLOG</h1>
+        <div class="blog-title-container">
+            <div class="title-line"></div>
+            <h1 class="blog-title">THE BLOG</h1>
+            <div class="title-line"></div>
+        </div>
         
         <section class="recent-posts">
             <h2 class="section-title">Recent blog posts</h2>
@@ -37,11 +47,11 @@
                         <h3 class="post-title">UX review presentations</h3>
                         <p class="post-excerpt">How do you create compelling presentations that wow your colleagues and impress your managers?</p>
                         <div class="post-tags">
-                            <span class="tag">Design</span>
+                            <span class="tag tag-design">Design</span>
                             <span>•</span>
-                            <span class="tag">Research</span>
+                            <span class="tag tag-research">Research</span>
                             <span>•</span>
-                            <span class="tag">Presentation</span>
+                            <span class="tag tag-presentation">Presentation</span>
                         </div>
                     </div>
                 </article>
@@ -58,9 +68,9 @@
                             <h3 class="post-title">Migrating to Linear 101</h3>
                             <p class="post-excerpt">Linear helps streamline software projects, sprints, tasks, and bug tracking. Here's how to get...</p>
                             <div class="post-tags">
-                                <span class="tag">Design</span>
+                                <span class="tag tag-design">Design</span>
                                 <span>•</span>
-                                <span class="tag">Research</span>
+                                <span class="tag tag-research">Research</span>
                             </div>
                         </div>
                     </article>
@@ -76,9 +86,9 @@
                             <h3 class="post-title">Building your API Stack</h3>
                             <p class="post-excerpt">The rise of RESTful APIs has been met by a rise in tools for creating, testing, and managing them.</p>
                             <div class="post-tags">
-                                <span class="tag">Design</span>
+                                <span class="tag tag-design">Design</span>
                                 <span>•</span>
-                                <span class="tag">Research</span>
+                                <span class="tag tag-research">Research</span>
                             </div>
                         </div>
                     </article>
@@ -100,9 +110,9 @@
                         <h3 class="post-title">Bill Walsh leadership lessons</h3>
                         <p class="post-excerpt">Like Steve Jobs, Bill Walsh is one of the greatest leaders in history. How did he turn a 2-14 team into a 3x Super Bowl winning Dynasty?</p>
                         <div class="post-tags">
-                            <span class="tag">Leadership</span>
+                            <span class="tag tag-leadership">Leadership</span>
                             <span>•</span>
-                            <span class="tag">Management</span>
+                            <span class="tag tag-management">Management</span>
                         </div>
                     </div>
                 </article>
@@ -118,11 +128,11 @@
                         <h3 class="post-title">PM mental models</h3>
                         <p class="post-excerpt">Mental models are simple expressions of complex processes or relationships.</p>
                         <div class="post-tags">
-                            <span class="tag">Product</span>
+                            <span class="tag tag-product">Product</span>
                             <span>•</span>
-                            <span class="tag">Research</span>
+                            <span class="tag tag-research">Research</span>
                             <span>•</span>
-                            <span class="tag">Frameworks</span>
+                            <span class="tag tag-frameworks">Frameworks</span>
                         </div>
                     </div>
                 </article>
@@ -138,15 +148,104 @@
                         <h3 class="post-title">What is Wireframing?</h3>
                         <p class="post-excerpt">Learn from the best in the industry about wireframing and its principles.</p>
                         <div class="post-tags">
-                            <span class="tag">Design</span>
+                            <span class="tag tag-design">Design</span>
                             <span>•</span>
-                            <span class="tag">Research</span>
+                            <span class="tag tag-research">Research</span>
                         </div>
                     </div>
                 </article>
             </div>
         </section>
+
+        <div class="pagination">
+            <a href="#" class="prev">Previous</a>
+            <div class="pagination-numbers">
+                <a href="#" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <span>...</span>
+                <a href="#">8</a>
+                <a href="#">9</a>
+                <a href="#">10</a>
+            </div>
+            <a href="#" class="next">Next</a>
+        </div>
     </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-links">
+                <a href="https://twitter.com" target="_blank">Twitter</a>
+                <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                <a href="mailto:contact@example.com">Email</a>
+                <a href="/rss.xml">RSS feed</a>
+            </div>
+            <div> 2023</div>
+        </div>
+    </footer>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-content">
+            <a href="blog.html" class="active">Blog</a>
+            <a href="projects.html">Projects</a>
+            <a href="about.html">About</a>
+            <a href="newsletter.html">Newsletter</a>
+            <button class="theme-switch mobile" id="theme-toggle-mobile" aria-label="Cambiar tema" title="Cambiar tema"></button>
+            <button class="close-menu" id="close-menu">×</button>
+        </div>
+    </div>
+
+    <script>
+        // Tema oscuro
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme) {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            if (currentTheme === 'dark') {
+                document.querySelector('.theme-switch').classList.add('dark-mode');
+                document.querySelector('.theme-switch.mobile').classList.add('dark-mode');
+            }
+        }
+
+        function toggleTheme() {
+            let theme = 'light';
+            if (document.documentElement.getAttribute('data-theme') !== 'dark') {
+                theme = 'dark';
+                document.querySelector('.theme-switch').classList.add('dark-mode');
+                document.querySelector('.theme-switch.mobile').classList.add('dark-mode');
+            } else {
+                document.querySelector('.theme-switch').classList.remove('dark-mode');
+                document.querySelector('.theme-switch.mobile').classList.remove('dark-mode');
+            }
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+        }
+
+        document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+        document.getElementById('theme-toggle-mobile').addEventListener('click', toggleTheme);
+
+        // Menú móvil
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenu = document.getElementById('close-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    </script>
 
     <script src="js/theme.js" defer></script>
 </body>

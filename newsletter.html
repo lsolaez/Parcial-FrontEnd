@@ -31,23 +31,40 @@
                 <a href="projects.html">Projects</a>
                 <a href="about.html">About</a>
                 <a href="newsletter.html" class="active">Newsletter</a>
-                <div class="theme-switch" id="theme-toggle"></div>
+                <button class="theme-switch" id="theme-toggle" aria-label="Toggle theme"></button>
             </nav>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
+                <span></span>
+            </button>
         </div>
     </header>
 
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-content">
+            <a href="index.html" class="brand">Your Name</a>
+            <nav class="nav-links">
+                <a href="blog.html">Blog</a>
+                <a href="projects.html">Projects</a>
+                <a href="about.html">About</a>
+                <a href="newsletter.html" class="active">Newsletter</a>
+            </nav>
+            <button class="theme-switch mobile" id="mobile-theme-toggle" aria-label="Toggle theme"></button>
+            <button class="close-menu" id="close-menu" aria-label="Close menu">×</button>
+        </div>
+    </div>
+
     <main class="container">
         <section class="newsletter-section">
-            <h2 class="newsletter-title">Stories and interviews</h2>
-            <p class="newsletter-description">Subscribe to learn about new product features, the latest in technology, solutions, and updates.</p>
-            
-            <form class="newsletter-form">
-                <div class="form-group">
-                    <input type="email" placeholder="Enter your email" class="email-input">
-                    <button type="submit" class="subscribe-button">Subscribe</button>
-                </div>
-                <p class="privacy-notice">We care about your data in our <a href="#" class="privacy-link">privacy policy</a></p>
-            </form>
+            <div class="newsletter-header">
+                <span class="newsletter-label">Newsletters</span>
+                <h2 class="newsletter-title">Stories and interviews</h2>
+                <p class="newsletter-description">Subscribe to learn about new product features, the latest in technology, solutions, and updates.</p>
+            </div>
+            <div class="newsletter-form">
+                <input type="email" placeholder="Enter your email" aria-label="Email subscription">
+                <button type="button" aria-label="Subscribe to newsletter">Subscribe</button>
+            </div>
+            <p class="privacy-notice">We care about your data in our <a href="privacy-policy.html">privacy policy</a></p>
         </section>
 
         <section class="blog-posts">
@@ -142,20 +159,64 @@
             </div>
         </section>
 
-        <footer class="site-footer">
-            <div class="footer-content">
-                <div class="copyright">© 2023</div>
-                <div class="social-links">
-                    <a href="#" class="social-link">Twitter</a>
-                    <a href="#" class="social-link">LinkedIn</a>
-                    <a href="#" class="social-link">Email</a>
-                    <a href="#" class="social-link">RSS feed</a>
-                    <a href="#" class="social-link">Add to Feedly</a>
+        <footer class="footer">
+            <div class="container footer-content">
+                <div class="footer-links">
+                    <a href="https://twitter.com" target="_blank">Twitter</a>
+                    <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                    <a href="mailto:contact@example.com">Email</a>
+                    <a href="/rss.xml">RSS feed</a>
                 </div>
+                <div> 2023</div>
             </div>
         </footer>
-    </main>
 
     <script src="js/theme.js" defer async></script>
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        
+        // Check for saved theme or use system preference
+        const savedTheme = localStorage.getItem('theme');
+        const currentTheme = savedTheme || (prefersDarkScheme.matches ? 'dark' : 'light');
+        
+        // Set initial theme
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        if (currentTheme === 'dark') {
+            themeToggle.classList.add('dark-mode');
+            mobileThemeToggle.classList.add('dark-mode');
+        }
+
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            themeToggle.classList.toggle('dark-mode');
+            mobileThemeToggle.classList.toggle('dark-mode');
+        }
+
+        themeToggle.addEventListener('click', toggleTheme);
+        mobileThemeToggle.addEventListener('click', toggleTheme);
+
+        // Mobile menu functionality
+        const menuToggle = document.getElementById('menu-toggle');
+        const closeMenu = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    </script>
 </body>
-</html> 
+</html>
